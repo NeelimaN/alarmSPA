@@ -405,3 +405,6 @@ position: relative;
 .addalarm{
 		display: none;
 }
+.alarmAlert{
+	display: none;
+}
