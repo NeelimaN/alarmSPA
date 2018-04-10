@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+    
+  <head>
+      
+    <meta charset="utf-8">
+      
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Alarm Clock</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+      
+  </head>
+    
+  <body>
+      
+	<div class = "main-content">
+		<div class="container homeclock pg">  
+			<div class="row">     
+            <div class="col-centered col-xs-6">
+				<section class="wrap" id="clock" style>
+					<div class="navbar">
+						<h1>Clock</h1>
+					</div>
+					<div class="page">
+						<div class="clock" id="activeA">
+							<div  id = "currentTime">15:45:22</div>
+							<small><div id = "currentDate">Mon 22 Jan, 2016</div></small>
+						</div>
+					</div>    
+					<div class="toolbar">
+						<div class="toolbar-inner">
+							<a href="#listroute" class="link">Alarm</a>
+						</div>
+					</div>
+				</section>
+			</div>
+			</div>
+		</div>
+	
+    	<div class="container alarmslist pg">  
+			<div class="row">     
+            <div class="col-centered col-xs-6">
+				<section class="wrap" id="clock" >
+					<div class="navbar">
+						
+						<h1>Alarm</h1>
+						<a href="#addroute" class="pills right addAlarm">Add</a>
+					</div>
+				<div class="page">
+				<!-- show this when no alarms are set -->
+				<div class="clock" id = "noAlarms" style="display: none;">
+					<p>No Alarms set</p>
+				</div>
+				<ul class="list" id="alist" >
+					
+				</ul>
+				</div>
+      
+				<div class="toolbar">
+				<div class="toolbar-inner">
+					<a href="#" class="link">Clock</a>
+            
+				</div>
+				</div>
+				</section>
+			</div>
+			</div>
+		</div>
+		<div class="container addalarm pg">  
+			<div class="row">     
+            <div class="col-centered col-xs-6">
+				 <section class="wrap" id="AddEdit">
+      <div class="navbar">
+        <a href="#listroute" class="pills left cancel">Cancel</a>
+        <h1>Alarm/Edit</h1>
+        <a id="saveAlarm" class="pills right save">Save</a>
+      </div>
+      <div class="page">
+	  <form id = "setAlarm">
+          <div class="content-block-title">Select Time</div>
+          <div class="content-block-inner">
+            <p>
+               <input type="time" class="form-control" id="time">
+
+            </p>
+            
+            <p class="item select selected">
+                <label href="#" for="Snooze">
+                  <input type="text"  value="" id = "label"/>
+                  <span>Label</span>
+                </label>
+              </p>
+         
+            
+          </div>  
+        
+        <div class="content-block-title">Repeat</div>
+        <ul class="list">
+              <li class="item select selected">
+                <label href="#" for="Monday">
+                  <input type="checkbox"  id="Mon" name = "rep"/>
+                  <span>Monday</span>
+                </label>
+              </li>
+              <li class="item select selected">
+                <label href="#" for="Tuesday">
+                  <input type="checkbox"  id="Tue" name = "rep"/>
+                  <span>Tuesday</span>
+                </label>
+              </li>
+            <li class="item select selected">
+                <label href="#" for="Wednesday">
+                  <input type="checkbox"  id="Wed" name = "rep"/>
+                  <span>Wednesday</span>
+                </label>
+              </li>
+          
+          <li class="item select selected">
+                <label href="#" for="Thursday">
+                  <input type="checkbox"  id="Thu" name = "rep"/>
+                  <span>Thursday</span>
+                </label>
+              </li>
+          <li class="item select selected">
+                <label href="#" for="Friday">
+                  <input type="checkbox"  id="Fri" name = "rep"/>
+                  <span>Friday</span>
+                </label>
+              </li>
+          <li class="item select selected">
+                <label href="#" for="Saturday">
+                  <input type="checkbox"  id="Sat" name = "rep"/>
+                  <span>Saturday</span>
+                </label>
+              </li>
+          <li class="item select selected">
+                <label href="#" for="Sunday">
+                  <input type="checkbox"  id="Sun" name = "rep"/>
+                  <span>Sunday</span>
+                </label>
+              </li>
+              
+            </ul>
+        <div class="content-block-title">Sound</div>
+        <ul class="list">
+          <li class="item select selected">
+                <label href="#" for="None">
+                  <input type="radio"  id="None" name="sound" checked="checked"/>
+                  <span>None</span>
+                </label>
+              </li>
+              <li class="item select selected">
+                <label href="#" for="Radar">
+                  <input type="radio"  id="Radar" name="sound"/>
+                  <span>Radar</span>
+                </label>
+              </li>
+          <li class="item select selected">
+                <label href="#" for="Beep">
+                  <input type="radio"  id="Beep" name="sound"/>
+                  <span>Beep</span>
+                </label>
+              </li>
+          
+              
+            </ul>
+			</form>
+      </div>
+      <div class="action">
+        <!-- show this if you are adding alarm -->
+        <a href="#" data-panel="left" class="button open-panel" id="saveAlarm">Save Alarm</a>
+        <!-- show this if you are editing alarm -->
+        <a href="#" data-panel="left" class="button open-panel danger" >Delete Alarm</a>
+      </div>
+    </section>
+    
+			</div>
+			</div>
+		</div>
+	</div>
+	<!--	<div class="container editalarm pg">  
+			<div class="row">     
+            <div class="col-centered col-xs-6">
+				 <section class="wrap" id="alarmList">
+      <div class="navbar">
+        <a class="pills left editAlarms">Done</a>
+        <h1>Edit Alarm</h1>
+        
+      </div>
+      <div class="page">
+        
+            <ul class="list">
+              <li class="item edit">
+                <a href="" class="remove">X</a>
+                <label href="#" data-template="about" data-context-name="about" class="item-link item-content">
+                  
+                  <input type="checkbox" checked />
+                  <strong>06:20 <sub>AM</sub></strong>
+                  <small>Morning walk, Everyday</small>
+                </label>
+              </li>
+              <li class="item off edit">
+                <a href="" class="remove">X</a>
+                <label href="#" data-template="about" data-context-name="about" class="item-link item-content">
+                  
+                  <input type="checkbox" />
+                  <strong>09:00 <sub>AM</sub></strong>
+                  <small>Weekly Catch up, Monday</small>
+                </label>
+              </li>
+              <li class="item edit">
+                <a href="" class="remove">X</a>
+                <label href="#" data-template="about" data-context-name="about" class="item-link item-content">
+                  
+                  <input type="checkbox" checked />
+                  <strong>10:20 <sub>AM</sub></strong>
+                  <small>Daily Standup, Weekdays</small>
+                </label>
+              </li>
+            </ul>
+      </div>
+      
+    </section>
+
+			</div>
+			</div>
+		</div>
+		
+		<div class="container activeAlarm pg">  
+			<div class="row">     
+            <div class="col-centered col-xs-6">
+				  <section class="wrap" id="AlarmPLaying">
+      <div class="page alarm">
+          <div class="clock">
+          15:45:22
+          <small>Mon 22 Jan, 2016</small>
+            <p class="">
+            Morning Walk
+          </p>
+          </div>
+          
+          <div class="action">
+            <a href="#" data-panel="left" class="button open-panel">Snooze</a>
+            <a href="#" data-panel="left" class="button small">Stop</a>
+          </div>
+          
+      
+      </div>
+    </section>
+
+			</div>
+			</div>
+		</div>
+        
+    -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+	<script src="https://npmcdn.com/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="alarms.json"></script>
+	<script type="text/javascript" src="script.js"></script>
+      
+  </body>
+    
+</html>
