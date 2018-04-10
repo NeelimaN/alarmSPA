@@ -29,10 +29,13 @@
 						<h1>Clock</h1>
 					</div>
 					<div class="page">
-						<div class="clock" id="activeA">
+						<div class="clock">
 							<div  id = "currentTime">15:45:22</div>
 							<small><div id = "currentDate">Mon 22 Jan, 2016</div></small>
 						</div>
+						<div><p class="alarmAlert">Alarm Alert</p></div>
+						<div class="action alarmAlert"><a href="#" id="stop" data-panel="left" class="button small alarmAlert">Stop</a></div>
+					
 					</div>    
 					<div class="toolbar">
 						<div class="toolbar-inner">
@@ -80,20 +83,20 @@
       <div class="navbar">
         <a href="#listroute" class="pills left cancel">Cancel</a>
         <h1>Alarm/Edit</h1>
-        <a id="saveAlarm" class="pills right save">Save</a>
+        <a class="pills right save saveAlarm">Save</a>
       </div>
       <div class="page">
 	  <form id = "setAlarm">
           <div class="content-block-title">Select Time</div>
           <div class="content-block-inner">
             <p>
-               <input type="time" class="form-control" id="time">
+               <input type="time" class="form-control validate" id="time" >
 
             </p>
             
             <p class="item select selected">
                 <label href="#" for="Snooze">
-                  <input type="text"  value="" id = "label"/>
+                  <input type="text"  value="" id = "label" class = "validate">
                   <span>Label</span>
                 </label>
               </p>
@@ -175,7 +178,7 @@
       </div>
       <div class="action">
         <!-- show this if you are adding alarm -->
-        <a href="#" data-panel="left" class="button open-panel" id="saveAlarm">Save Alarm</a>
+        <a data-panel="left" class="button open-panel saveAlarm">Save Alarm</a>
         <!-- show this if you are editing alarm -->
         <a href="#" data-panel="left" class="button open-panel danger" >Delete Alarm</a>
       </div>
