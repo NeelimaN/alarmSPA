@@ -35,18 +35,23 @@
         document.getElementById("currentDate").innerHTML=cd;
         document.getElementById("currentTime").innerHTML=ct;
 		$.each(alarms, function(key,val) {
-			if(dateobj.getHours() == (alarms[key].time).split(':')[0] && dateobj.getMinutes() == (alarms[key].time).split(':')[1]){
+			if(dateobj.getHours() == (alarms[key].time).split(':')[0] && dateobj.getMinutes() == (alarms[key].time).split(':')[1] && dateobj.getSeconds() == 0){
 				renderActiveAlarm();
 			}
 		});}, 1000);
 		
 	function renderActiveAlarm(){
 		$('.main-content .page').addClass('alarm');
-		$('#activeA').append('<div><p class="">Morning Walk</p></div><div class="action"><a href="#" data-panel="left" class="button open-panel">Snooze</a><a href="#" data-panel="left" class="button small">Stop</a></div>');
-	}
+		$('.alarmAlert').css('display','block');
+		}
 		
-	$('#saveAlarm').click(function(){
+	$('#stop').click(function(){
+		$('.main-content .page').removeClass('alarm');
+		$('.alarmAlert').css("display", "none");
+	});
+	$('.saveAlarm').click(function(){
 		var repId = [];
+		var valid = true;
 		$("input:checkbox[name=rep]:checked").each(function () {
             repId.push($(this).attr("id"));
         })
@@ -55,9 +60,20 @@
 					repeat: repId,
 					sound: $('input[type=radio][name=sound]:checked').attr('id')
 				};
+				
+		$( ".validate" ).each(function( index ) {
+         if( $( this ).val() ==="" ){
+			 $(this).css({ "border": '#FF0000 1px solid'});
+			 valid= false;
+		 }
+			 
+});
+		 
 		alarms.push(ala);
-		window.location.hash = '#listroute';
-		    document.getElementById("setAlarm").reset();
+		if(valid){
+			window.location.hash = '#listroute';
+		}
+		document.getElementById("setAlarm").reset();
 
 	});
 $(window).on('hashchange', function(){
